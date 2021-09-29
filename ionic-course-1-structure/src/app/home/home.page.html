@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div>Título: {{title}}</div>
+  <h3>Olá {{user.name}} {{user.lastName}}!</h3>
+
+  <ion-button (click)="changeTitle()">Alterar título</ion-button>
+
+</ion-content>
