@@ -126,4 +126,4 @@ app.use('/api', router);
 //Iniciando o Servidor (Aplicação):
 //==============================================================
 app.listen(port);
-console.log('Iniciando a aplicação na porta ' + port);
+console.log('Servidor iniciado na porta ' + port);
