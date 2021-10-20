@@ -8,20 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of list" (click)="onItemClick(item)">
+  <ion-card *ngFor="let item of list | orderBy: '-createdAt'" (click)="onItemClick(item)">
     <img src="{{item.image}}" />
     <ion-card-header>
       <ion-card-title>
         {{item.title}}
       </ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
       <span>{{item.createdAt | date: 'shortDate'}}</span>
+      <div>{{item.value | currency:'BRL'}}</div>
       <p>
         {{item.description}}
       </p>
 
     </ion-card-content>
+
   </ion-card>
 
 </ion-content>
