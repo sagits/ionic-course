@@ -11,15 +11,15 @@
   <ion-card *ngFor="let item of list | orderBy: '-createdAt'" (click)="onItemClick(item)">
     <img src="{{item.image}}" />
     <ion-card-header>
-      <ion-card-title appTextStyle color="red">
+      <ion-card-title>
         {{item.title}}
       </ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <span>{{item.createdAt | date: 'shortDate'}}</span>
-      <div>{{item.value | currency:'BRL'}}</div>
-      <p>
+      <div *ngIf="item.value">{{item.value | currency:'BRL'}}</div>
+      <p appTextStyle textColor="red" textAlign="justify">
         {{item.description}}
       </p>
 

@@ -29,7 +29,6 @@ var _data = [
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.",
         "image": "https://tecnoblog.net/wp-content/uploads/2020/09/samsung-galaxy-note-20-ultra-review-11.jpg",
         "featured": true,
-        "value": 4000,
         "createdAt": "2020-03-22"
     },
     {
