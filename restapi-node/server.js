@@ -3,6 +3,7 @@
 /* Chamada das Packages que iremos precisar para a nossa aplicação */
 var express = require('express'); //chamando o pacote express
 var app = express(); //definção da nossa aplicação através do express
+var cors = require('cors')
 var bodyParser = require('body-parser');  //chamando o pacote body-parser
 var _ = require('underscore');
 
@@ -11,6 +12,7 @@ var _ = require('underscore');
  */
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 /** Definição da porta onde será executada a nossa aplicação */
 var port = process.env.PORT || 8000;
@@ -74,6 +76,8 @@ router.post('/products', function (req, res) {
     item.id = _counter;
     _data.push(item);
 
+    // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    // res.setHeader("Access-Control-Allow-Origin", "*")
     res.json(item);
 });
 

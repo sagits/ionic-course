@@ -6,9 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
+  url = "http://localhost:8000/api/products";
+
   constructor(public http: HttpClient) { }
 
   getAll() {
-    return this.http.get("http://localhost:8000/api/products");
+    return this.http.get(this.url);
   }
 }

@@ -26,16 +26,30 @@
       </small>
 
       <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-input #description="ngModel" required minlength="4" name="description" [(ngModel)]="item.description" type="text">
+        </ion-input>
+      </ion-item>
+
+      <small padding-left *ngIf="description.invalid && (description.dirty || description.touched)">
+        A descrição precisa ter ao menos 4 caracteres.
+      </small>
+
+      <ion-item>
         <ion-label position="floating">E-mail de suporte</ion-label>
-        <ion-input email #emailDeSuporte="ngModel" required minlength="4" name="emailDeSuporte" [(ngModel)]="item.emailDeSuporte"
-          type="email">
-          </ion-input>
+        <ion-input email #emailDeSuporte="ngModel" required minlength="4" name="emailDeSuporte"
+          [(ngModel)]="item.emailDeSuporte" type="email">
+        </ion-input>
       </ion-item>
 
       <small padding-left *ngIf="emailDeSuporte.invalid && (emailDeSuporte.dirty || emailDeSuporte.touched)">
         O E-mail precisa ser digitado.
       </small>
 
+      <ion-item>
+        <ion-label position="floating">Valor</ion-label>
+        <input class="currency-input" currencyMask [(ngModel)]="item.value" name="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+      </ion-item>
 
       <div>
         <ion-button [disabled]="!form.valid" expand="block" type="submit"> Adicionar

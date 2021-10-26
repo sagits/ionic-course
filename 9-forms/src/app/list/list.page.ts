@@ -33,6 +33,10 @@ export class ListPage implements OnInit {
     this.getData();
   }
 
+  ionViewDidEnter() {
+    this.getData();
+  }
+
   getData() {
     this.productService.getAll().subscribe(data => {
       this.list = data;

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <app-product-card *ngFor="let item of list | orderBy: '-createdAt'" [item]="item" (click)="onItemClick(item)">
+  </app-product-card>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onAddClick()">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+</ion-content>

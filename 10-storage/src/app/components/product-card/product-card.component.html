@@ -1,0 +1,18 @@
+<ion-card *ngIf="item">
+  <img src="{{item.image}}" />
+  <ion-card-header>
+    <ion-card-title>
+      {{item.title}}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <span>{{item.createdAt | date: 'shortDate'}}</span>
+    <div *ngIf="item.value">{{item.value | currency:'BRL'}}</div>
+    <p appTextStyle textColor="red" textAlign="justify">
+      {{item.description}}
+    </p>
+
+  </ion-card-content>
+
+</ion-card>

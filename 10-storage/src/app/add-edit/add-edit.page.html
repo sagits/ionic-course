@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Adicionar produto</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input #title="ngModel" required minlength="4" name="title" [(ngModel)]="item.title" type="text">
+        </ion-input>
+      </ion-item>
+
+      <small padding-left *ngIf="title.invalid && (title.dirty || title.touched)">
+        O título precisa ter ao menos 4 caracteres.
+      </small>
+
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-input #description="ngModel" required minlength="4" name="description" [(ngModel)]="item.description" type="text">
+        </ion-input>
+      </ion-item>
+
+      <small padding-left *ngIf="description.invalid && (description.dirty || description.touched)">
+        A descrição precisa ter ao menos 4 caracteres.
+      </small>
+
+      <ion-item>
+        <ion-label position="floating">E-mail de suporte</ion-label>
+        <ion-input email #emailDeSuporte="ngModel" required minlength="4" name="emailDeSuporte"
+          [(ngModel)]="item.emailDeSuporte" type="email">
+        </ion-input>
+      </ion-item>
+
+      <small padding-left *ngIf="emailDeSuporte.invalid && (emailDeSuporte.dirty || emailDeSuporte.touched)">
+        O E-mail precisa ser digitado.
+      </small>
+
+      <ion-item>
+        <ion-label position="floating">Valor</ion-label>
+        <input class="currency-input" currencyMask [(ngModel)]="item.value" name="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+      </ion-item>
+
+      <div>
+        <ion-button [disabled]="!form.valid" expand="block" type="submit"> {{item?.id ? 'Editar' : 'Adicionar'}}</ion-button>
+      </div>
+    </ion-list>
+  </form>
+
+</ion-content>
